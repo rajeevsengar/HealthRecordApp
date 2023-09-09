@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Health Records">
+        <div class="slds-grid slds-gutters slds-m-left_xx-small">
+            <div class="slds-col slds-size_1-of-2">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-button variant="brand" label="Add Health Record" onclick={handleAddHealthRecord}></lightning-button>
+                    </div>
+                    <div class="slds-col slds-size_2-of-3 slds-m-left_xx-small">
+                        <lightning-combobox variant="label-inline" label="Select User" options={uniqueUsers} value={selectedUser}
+                            placeholder="-- Select User --" onchange={handleUserChange}>
+                        </lightning-combobox>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add HealthRecordDataTable component and pass data as props -->
+        <c-health-record-data-table data-id="data-table" selected-user={selectedUser} onedit={handleEdit}
+            ondelete={handleDelete}>
+        </c-health-record-data-table>
+
+        <!-- Modal or dialog to show the HealthRecordForm component -->
+        <!-- Use conditional rendering to show/hide the form -->
+        <c-health-record-form if:true={showForm} record-id={healthRecordId} onmodaltoggle={handleModalToggle}
+            onsuccess={handleRecordSuccess}>
+        </c-health-record-form>
+    </lightning-card>
+</template>

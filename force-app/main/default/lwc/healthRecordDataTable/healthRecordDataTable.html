@@ -1,0 +1,68 @@
+<template>
+    <div class="slds-p-around_medium">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col" rowspan="2">
+                        <div class="slds-truncate" title="Date">Date</div>
+                    </th>
+                    <th scope="col" colspan="3" align="center">
+                        <div class="slds-truncate slds-text-align_center" title="Morning">Morning</div>
+                    </th>
+                    <th scope="col">
+                    </th>
+                    <th scope="col" colspan="3" align="center">
+                        <div class="slds-truncate slds-text-align_center" title="Evening">Evening</div>
+                    </th>
+                    <th scope="col" rowspan="2">
+                        <div class="slds-truncate" title="Actions">Actions</div>
+                    </th>
+                </tr>
+                <tr class="morning-header">
+                    <th data-label="Morning Time">Time</th>
+                    <th data-label="Morning BP Up">BP Reading</th>
+                    <th data-label="Morning Medicine">Medicine</th>
+                    <th data-label="Space"></th>
+                    <th data-label="Evening Time">Time</th>
+                    <th data-label="Evening BP Up">BP Reading</th>
+                    <th data-label="Evening Medicine">Medicine</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={groupedHealthRecords} for:item="group" for:index="index">
+                    <tr key={group.date}>
+                        <td class="slds-theme_inverse" colspan="4"></td>
+                        <td colspan="1" class="slds-theme_shade slds-theme_alert-texture"></td>
+                        <td class="slds-theme_inverse" colspan="4"></td>
+                    </tr>
+                    <template for:each={group.healthRecords} for:item="healthRecord">
+                        <tr key={healthRecord.Id} class={group.AlternateDateCSSClass}>
+                            <template if:true={healthRecord.DisplayDate}>
+                                <td data-label="Date" rowspan={group.countPerDate} class="slds-theme_alert-texture">{healthRecord.Date}</td>
+                            </template>
+                            <td data-label="Morning Time">{healthRecord.Morning_Time}</td>
+                            <td data-label="Morning BP Up" class={healthRecord.Morning_BPIndicator}>{healthRecord.Morning_BP_Reading}</td>
+                            <td data-label="Morning Medicine">{healthRecord.Morning_Medicine}</td>
+                            <template if:true={healthRecord.DisplayDate}>
+                                <td rowspan={group.countPerDate} class="slds-theme_alert-texture"></td>
+                            </template>
+                            <td data-label="Evening Time">{healthRecord.Evening_Time}</td>
+                            <td data-label="Evening BP Up" class={healthRecord.Evening_BPIndicator}>{healthRecord.Evening_BP_Reading}</td>
+                            <td data-label="Evening Medicine">{healthRecord.Evening_Medicine}</td>
+                            <td data-label="Actions">
+                                <!-- <button class="slds-button slds-button_icon" title="Edit" onclick={handleEditRecord} data-id={healthRecord.Id}>
+                                    <lightning-icon icon-name="utility:edit"></lightning-icon>
+                                </button>
+                                <button class="slds-button slds-button_icon" title="Delete" onclick={handleDeleteRecord} data-id={healthRecord.Id}>
+                                    <lightning-icon icon-name="utility:delete"></lightning-icon>
+                                </button> -->
+                                <lightning-button-icon value={healthRecord.Id} icon-name="utility:edit"  alternative-text="Edit" title="Edit" onclick={handleEditRecord}></lightning-button-icon>
+                                <lightning-button-icon class="slds-m-left_xx-small" icon-class="slds-icon-text-error" value={healthRecord.Id} icon-name="utility:delete"  alternative-text="Delete" title="Delete" onclick={handleDeleteRecord}></lightning-button-icon>
+                            </td>
+                        </tr>
+                    </template>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</template>
