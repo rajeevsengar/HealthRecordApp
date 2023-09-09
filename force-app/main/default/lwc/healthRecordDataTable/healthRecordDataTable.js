@@ -45,7 +45,6 @@ export default class HealthRecordTable extends LightningElement {
 
             const phase = record.Phase__c;
             const time = record.Date_and_Time__c.substring(11, 19);
-            debugger
             const morningUPBP = record['Morning_BP_Reading_Up__c'] != 0 ? record['Morning_BP_Reading_Up__c'] : '';
             const morningDownBP = record['Morning_BP_Reading_Down__c'] != 0 ? record['Morning_BP_Reading_Down__c'] : '';
             const morningBPReading = morningUPBP && morningDownBP ? morningUPBP.toString() + '/' + morningDownBP.toString() : '';

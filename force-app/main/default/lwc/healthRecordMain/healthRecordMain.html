@@ -25,7 +25,7 @@
 
         <!-- Modal or dialog to show the HealthRecordForm component -->
         <!-- Use conditional rendering to show/hide the form -->
-        <c-health-record-form if:true={showForm} record-id={healthRecordId} onmodaltoggle={handleModalToggle}
+        <c-health-record-form if:true={showForm} selected-user={selectedUser} record-id={healthRecordId} onmodaltoggle={handleModalToggle}
             onsuccess={handleRecordSuccess}>
         </c-health-record-form>
     </lightning-card>

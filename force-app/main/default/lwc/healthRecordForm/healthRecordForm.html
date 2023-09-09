@@ -17,7 +17,7 @@
                     oncancel={closeModal}>
                     <div class="slds-grid slds-gutters">
                         <div class="slds-col">
-                            <lightning-input-field field-name="User__c" required></lightning-input-field>
+                            <lightning-input-field field-name="User__c" value={selectedUser} required></lightning-input-field>
                             <lightning-input-field field-name="Date_and_Time__c"
                                 value={currentDateTime}></lightning-input-field>
                             <lightning-input-field field-name="BP_Up__c" type="number"></lightning-input-field>

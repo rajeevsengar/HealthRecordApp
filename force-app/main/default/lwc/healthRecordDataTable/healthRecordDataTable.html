@@ -1,5 +1,5 @@
 <template>
-    <div class="slds-p-around_medium">
+    <div class="slds-p-around_medium" style="overflow-x:auto;">
         <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
             <thead>
                 <tr class="slds-text-title_caps">
@@ -7,25 +7,25 @@
                         <div class="slds-truncate" title="Date">Date</div>
                     </th>
                     <th scope="col" colspan="3" align="center">
-                        <div class="slds-truncate slds-text-align_center" title="Morning">Morning</div>
+                        <div class="slds-truncate slds-text-align_center" title="Morning" style="color:darkcyan">Morning</div>
                     </th>
                     <th scope="col">
                     </th>
                     <th scope="col" colspan="3" align="center">
-                        <div class="slds-truncate slds-text-align_center" title="Evening">Evening</div>
+                        <div class="slds-truncate slds-text-align_center" title="Evening" style="color:indianred">Evening</div>
                     </th>
                     <th scope="col" rowspan="2">
                         <div class="slds-truncate" title="Actions">Actions</div>
                     </th>
                 </tr>
-                <tr class="morning-header">
-                    <th data-label="Morning Time">Time</th>
-                    <th data-label="Morning BP Up">BP Reading</th>
-                    <th data-label="Morning Medicine">Medicine</th>
-                    <th data-label="Space"></th>
-                    <th data-label="Evening Time">Time</th>
-                    <th data-label="Evening BP Up">BP Reading</th>
-                    <th data-label="Evening Medicine">Medicine</th>
+                <tr style="color: palevioletred;">
+                    <td data-label="Morning Time">Time</td>
+                    <td data-label="Morning BP Up">BP Reading</td>
+                    <td data-label="Morning Medicine">Medicine</td>
+                    <td data-label="Space"></td>
+                    <td data-label="Evening Time">Time</td>
+                    <td data-label="Evening BP Up">BP Reading</td>
+                    <td data-label="Evening Medicine">Medicine</td>
                 </tr>
             </thead>
             <tbody>

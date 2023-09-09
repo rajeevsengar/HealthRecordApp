@@ -5,6 +5,7 @@ export default class HealthRecordForm extends LightningElement {
     // @api currentDateTime = new Date().toISOString();
     @api recordId;
     @track currentDateTime;
+    @api selectedUser;
 
     connectedCallback(){
         if(!this.recordId){
@@ -14,6 +15,7 @@ export default class HealthRecordForm extends LightningElement {
 
     closeModal() {
         this.recordId = '';
+        this.selectedUser = '';
         const selectEvent = new CustomEvent('modaltoggle', {
             detail: false
         });
