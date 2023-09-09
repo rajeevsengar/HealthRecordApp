@@ -1,14 +1,17 @@
 <template>
     <lightning-card title="Health Records">
-        <div class="slds-grid slds-gutters slds-m-left_xx-small">
-            <div class="slds-col slds-size_1-of-2">
-                <div class="slds-grid slds-gutters">
-                    <div class="slds-col slds-size_1-of-3">
-                        <lightning-button variant="brand" label="Add Health Record" onclick={handleAddHealthRecord}></lightning-button>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <div class="slds-grid slds-wrap">
+                    <!-- Button -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                        <lightning-button variant="brand" label="Add Health Record"
+                            onclick={handleAddHealthRecord}></lightning-button>
                     </div>
-                    <div class="slds-col slds-size_2-of-3 slds-m-left_xx-small">
-                        <lightning-combobox variant="label-inline" label="Select User" options={uniqueUsers} value={selectedUser}
-                            placeholder="-- Select User --" onchange={handleUserChange}>
+                    <!-- Combobox -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3">
+                        <lightning-combobox variant="label-inline" label="Select User" options={uniqueUsers}
+                            value={selectedUser} placeholder="-- Select User --" onchange={handleUserChange}>
                         </lightning-combobox>
                     </div>
                 </div>
